@@ -1,0 +1,5 @@
+
+dicionario = {"conectores":" ─, │, ┌, ┐,└, ┘, ├, ┤, ┬, ┴, ┼"}
+
+for items in dicionario:
+    print(dicionario["conectores"])

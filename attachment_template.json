@@ -1,0 +1,11 @@
+{
+    "name" : "picatinnyrail",
+    "type": "Attachment",
+    "category": "rail",
+    "groups": [
+      "picatinny_rail"
+    ],
+    "compatibleAttachmentGroups": [
+      "ar_sightsandscopes"
+    ]
+  }
