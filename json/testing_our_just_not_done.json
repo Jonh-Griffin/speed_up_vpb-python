@@ -1,0 +1,258 @@
+{
+    "name": "m82a1",
+    "type": "Gun",
+    "maxAmmoCapacity": 10,
+    "compatibleAmmo": ["ammocreative", "ammo50bmg"],
+    "damage" : 40.0,
+    "rpm": 115,
+    "fireModes": ["SINGLE"],
+    "fireSound": "shot3",
+    "drawCooldownDuration": 650,
+    "aimingZoom": 0.5,
+    "gunRecoilInitialAmplitude": 1.5,
+    "shakeRecoilAmplitude": 0.3,
+    "shakeRecoilSpeed": 3,
+    "viewRecoilAmplitude": 8,
+    "inspectCooldownDuration": 4500,
+    "compatibleAttachments": ["cantedrail"],
+    "compatibleAttachmentGroups": [
+      "ar_sightsandscopes",
+      "snipers_sights",
+      "ammo"
+    ],
+    "phasedReloads": [
+      {
+        "phase": "RELOADING",
+        "condition": "reloadIterationIndex == 0",
+        "duration": 4250,
+        "animation": "animation.model.reloadempty",
+        "shakeEffects": [
+          {
+            "start": 0,
+            "duration": 1500,
+            "initialAmplitude": 0.1,
+            "rateOfAmplitudeDecay": 0.8
+          },
+          {
+            "start": 200,
+            "duration": 700,
+            "initialAmplitude": 0.1,
+            "rateOfAmplitudeDecay": 0.4
+          },
+          {
+            "start": 370,
+            "duration": 500,
+            "initialAmplitude": 0.2,
+            "rateOfAmplitudeDecay": 0.4
+          },
+          {
+            "start": 1070,
+            "duration": 1500,
+            "initialAmplitude": 0.2,
+            "rateOfAmplitudeDecay": 0.4
+          },
+          {
+            "start": 1830,
+            "duration": 800,
+            "initialAmplitude": 0.17,
+            "rateOfAmplitudeDecay": 0.3
+          },
+          {
+            "start": 2300,
+            "duration": 800,
+            "initialAmplitude": 0.25,
+            "rateOfAmplitudeDecay": 0.4
+          },
+          {
+            "start": 2800,
+            "duration": 1000,
+            "initialAmplitude": 0.2,
+            "rateOfAmplitudeDecay": 0.5
+          },
+          {
+            "start": 2930,
+            "duration": 400,
+            "initialAmplitude": 0.1,
+            "rateOfAmplitudeDecay": 0.4
+          }
+        ]
+      },
+      {
+        "phase": "RELOADING",
+        "condition": "reloadIterationIndex > 0",
+        "duration": 2583,
+        "animation": "animation.model.reload",
+        "shakeEffects": [
+          {
+            "start": 0,
+            "duration": 1500,
+            "initialAmplitude": 0.1,
+            "rateOfAmplitudeDecay": 0.8
+          },
+          {
+            "start": 530,
+            "duration": 1500,
+            "initialAmplitude": 0.2,
+            "rateOfAmplitudeDecay": 0.4
+          },
+          {
+            "start": 1370,
+            "duration": 800,
+            "initialAmplitude": 0.17,
+            "rateOfAmplitudeDecay": 0.5
+          },
+          {
+            "start": 1730,
+            "duration": 700,
+            "initialAmplitude": 0.2,
+            "rateOfAmplitudeDecay": 0.3
+          }
+        ]
+      }
+    ],
+    "effects": [
+      {
+        "phase": "hit_scan_acquired",
+        "name": "tracer"
+      },
+      {
+        "phase": "firing",
+        "name": "muzzle_flash"
+      }
+    ],
+    "features": [
+      {
+        "type": "Aiming",
+        "zoom": 0.5,
+        "condition": {
+          "doesNotHaveAttachmentGroup": "ar_sightsandscopes"
+        }
+      },
+      {
+        "type": "Aiming",
+        "zoom": 0.5,
+        "condition": {
+          "doesNotHaveAttachmentGroup": "snipers_sights"
+        }
+      },
+      {
+        "type": "MuzzleFlash",
+        "effects": [
+          {
+            "phase": "firing",
+            "name": "muzzle_flash"
+          }
+        ],
+        "condition": {
+          "allOf": [
+            {
+              "isUsingDefaultMuzzle": true
+            },
+            {
+              "doesNotHaveAttachment": "hp_suppressor"
+            }
+          ]
+        }
+      },
+      {
+        "type": "MuzzleFlash",
+        "effects": [
+          {
+            "phase": "firing",
+            "name": "muzzle_flash"
+          }
+        ],
+        "condition": {
+          "allOf": [
+            {
+              "isUsingDefaultMuzzle": true
+            },
+            {
+              "doesNotHaveAttachment": "hp_suppressor"
+            }
+          ]
+        }
+      },
+      {
+        "type": "Sound",
+        "fireSound": "spr2_silenced",
+        "fireSoundVolume": 1,
+        "condition": {
+          "allOf": [
+            {
+              "hasAttachment": "hp_suppressor"
+            },
+            {
+              "unselectedFireMode": "grenade_launcher"
+            }
+          ]
+        }
+      },
+      {
+        "type": "PartVisibility",
+        "parts": [
+          {
+            "name": "point_up",
+            "visible": false,
+            "condition": {
+              "hasAttachmentGroup": "ar_sightsandscopes"
+            }
+          },
+          {
+            "name": "point_down",
+            "visible": true,
+            "condition": {
+              "hasAttachmentGroup": "ar_sightsandscopes"
+            }
+          },
+          {
+            "name": "iron_up",
+            "visible": false,
+            "condition": {
+              "hasAttachmentGroup": "ar_sightsandscopes"
+            }
+          },
+          {
+            "name": "iron_down",
+            "visible": true,
+            "condition": {
+              "hasAttachmentGroup": "ar_sightsandscopes"
+            }
+          }
+        ]
+      },
+      {
+        "type": "PartVisibility",
+        "parts": [
+          {
+            "name": "point_up",
+            "visible": false,
+            "condition": {
+              "hasAttachmentGroup": "snipers_sights"
+            }
+          },
+          {
+            "name": "point_down",
+            "visible": true,
+            "condition": {
+              "hasAttachmentGroup": "snipers_sights"
+            }
+          },
+          {
+            "name": "iron_up",
+            "visible": false,
+            "condition": {
+              "hasAttachmentGroup": "snipers_sights"
+            }
+          },
+          {
+            "name": "iron_down",
+            "visible": true,
+            "condition": {
+              "hasAttachmentGroup": "snipers_sights"
+            }
+          }
+        ]
+      }
+    ]
+  }
